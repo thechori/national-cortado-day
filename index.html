@@ -49,6 +49,11 @@
       margin-top: 20px;
       color: #0051c3;
       font-weight: 600;
+      
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      width: 100%;
     }
 
     #month {
@@ -74,13 +79,21 @@
     #button:hover {
       background-color: pink;
     }
+
+    img#cortado {
+      border-radius: 256px;
+    }
+
   </style>
 
   <div id="container">
     <div id="title">National Cortado Day</div>
     <div id="date-container">
-      <div id="month">December</div>
-      <div id="date">20th</div>
+      <div>
+        <div id="month">December</div>
+        <div id="date">20th</div>
+      </div>
+      <img id="cortado" src="cortado.jpeg" width="256" />
     </div>
     <a id="button" href="https://www.google.com/search?q=coffee+near+me">GET COFFEE</a>
   </div>
