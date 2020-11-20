@@ -1,6 +1,14 @@
 <html>
 <head>
-
+  <link href="https://fonts.googleapis.com/css?family=Eczar:400,500,600,700|Montserrat:400,700|Poppins:300,400|Roboto+Mono|Roboto:400,500,900|Spectral" rel=stylesheet>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V4Z61P5ZPF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-V4Z61P5ZPF');
+  </script>
 </head>
 <body>
 
@@ -10,31 +18,39 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background-color: #0069ff;
+
+      background-color: #f2dfc5;
+      color: #2e271f;
+      font-family: Montserrat,sans-serif;
     }
+
     #container {
       display: flex;
       align-items: center;
       flex-direction: column;
       justify-content: center;
       background-color: white;
-      padding: 30px;
+      padding: 48px;
       border-radius: 30px;
 
     }
 
     #title {
       font-size: 60px;
+      font-weight: 700;
     }
 
     #date-container {
       padding: 20px;
-      margin: 10px;
+      margin-top: 20px;
       color: #0051c3;
+      font-weight: 600;
     }
 
     #month {
       font-size: 40px;
+      line-height: .2em;
+      font-weight: 600;
     }
 
     #date {
@@ -62,7 +78,7 @@
       <div id="month">December</div>
       <div id="date">20th</div>
     </div>
-    <a id="button" href="https://www.google.com/search?q=google+cortado+near+me">GET COFFEE</a>
+    <a id="button" href="https://www.google.com/search?q=coffee+near+me">GET COFFEE</a>
   </div>
 
 </body>
