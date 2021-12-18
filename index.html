@@ -43,12 +43,11 @@
       justify-content: center;
       flex-direction: column;
       background-color: var(--background-dark);
-      padding: 32px;
       border-radius: 30px;
     }
 
     #title {
-      font-size: 36px;
+      font-size: 28px;
       font-weight: 700;
     }
 
@@ -60,7 +59,7 @@
       align-items: center;
       justify-content: space-around;
       width: 100%;
-      margin-bottom: 48px;
+      margin-bottom: 32px;
       flex-direction: column;
     }
 
@@ -73,7 +72,7 @@
     #date {
       font-size: 60px;
       text-align: center;
-      margin-bottom: 16px;
+      margin-bottom: 8px;
     }
 
     #footer {
@@ -123,44 +122,63 @@
       padding: 0px 16px;
     }
 
-    .button:hover {
+    /* .button:hover {
       background-color: pink;
-    }
+    } */
 
     img#cortado {
-      border-radius: 256px;
-      width: 256px;
+      border-radius: 200px;
+      width: 200px;
       border: 2px solid black;
     }
-
+    
     .verbena-section {
       margin-top: 32px;
     }
-
+    
     .link-description {
       margin-bottom: 4px;
     }
 
-    @media screen and (min-width: 768px) {
+    #verbena-logo {
+      width: 90%;
+    }
+    
+    @media screen and (min-width: 600px) {
       #content {
         flex-direction: row;
+        margin-bottom: 48px;
       }
-
+      
       #title {
         font-size: 50px;
       }
-
+      
       #date {
         font-size: 100px;
         margin: 0;
+        margin-bottom: 16px;
+      }
+      
+      #container {
+        padding: 16px;
+      }
+
+      img#cortado {
+        border-radius: 256px;
+        width: 256px;
+      }
+
+      #verbena-logo {
+        
       }
     }
 
-    @media screen and (min-width: 1024px) {
+    /* @media screen and (min-width: 1024px) {
       #content {
-        color: pink;
+        
       }
-    }
+    } */
 
   </style>
 
