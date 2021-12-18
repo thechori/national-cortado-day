@@ -16,16 +16,25 @@
 </head>
 <body>
 
-  <style>
+  <style>    
     body {
+      /* variables */
+      --primary-light: #d1f7ec;
+      --primary: #679487;
+      --primary-dark: #3f625a;
+      --primary-darker: #2f4d44;
+      --font: #3c3c3c;
+      --background-dark: #9da190;
+      --background-light: #ebebeb;
+
       flex: 1;
       display: flex;
       align-items: center;
       justify-content: center;
 
-      background-color: #f2dfc5;
+      background-color: var(--background-dark);
       color: #2e271f;
-      font-family: Montserrat,sans-serif;
+      font-family: Montserrat, Arial, sans-serif;
     }
 
     #container {
@@ -33,27 +42,25 @@
       align-items: center;
       flex-direction: column;
       justify-content: center;
-      background-color: white;
-      padding: 48px;
+      background-color: var(--background-dark);
+      padding: 32px;
       border-radius: 30px;
-
     }
 
     #title {
-      font-size: 60px;
+      font-size: 50px;
       font-weight: 700;
     }
 
-    #date-container {
-      padding: 20px;
+    #content {
       margin-top: 20px;
-      color: #0051c3;
+      color: white;
       font-weight: 600;
-      
       display: flex;
       align-items: center;
       justify-content: space-around;
       width: 100%;
+      margin-bottom: 48px;
     }
 
     #month {
@@ -66,7 +73,11 @@
       font-size: 100px;
     }
 
-    #button {
+    #footer {
+      text-align: center;
+    }
+
+    .button {
       padding: 20px;
       font-size: 20px;
       text-decoration: none;
@@ -76,27 +87,95 @@
       text-align: center;
     }
 
-    #button:hover {
+    .verbena-button {
+      font-size: 16px;
+      height: 32px;
+      padding: 0px 16px;
+      margin-bottom: 8px;
+      background-color: var(--primary);
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid var(--primary-dark);
+    }
+
+    .verbena-button.big {
+      font-size: 20px;
+      height: 48px;
+    }
+
+    .verbena-button:hover {
+      opacity: 0.8;
+    }
+    
+    .verbena-outline-button {
+      font-size: 14px;
+      background: transparent;
+      border: 2px solid white;
+      border-radius: 8px;
+      height: 32px;
+      padding: 0px 16px;
+    }
+
+    .button:hover {
       background-color: pink;
     }
 
     img#cortado {
       border-radius: 256px;
+      width: 256px;
+      border: 2px solid black;
+    }
+
+    .verbena-section {
+      margin-top: 32px;
+    }
+
+    .link-description {
+      margin-bottom: 4px;
     }
 
   </style>
 
   <div id="container">
     <div id="title">National Cortado Day</div>
-    <div id="date-container">
-      <div>
+    <div id="content">
+      <div id="date-container">
         <div id="month">December</div>
         <div id="date">20th</div>
       </div>
-      <img id="cortado" src="cortado.jpeg" width="256" />
+      <div id="image-container">
+        <img id="cortado" src="cortado-verbena.jpeg" />
+      </div>
     </div>
-    <a id="button" href="https://www.google.com/search?q=coffee+near+me">GET COFFEE</a>
-  </div>
 
+    <div id="footer">
+      <div class="row">
+        <div class="button-container">
+          <a class="verbena-button big" href="https://www.google.com/search?q=coffee+near+me">Find a Cortado</a>
+        </div>
+      </div>
+
+      <div class="row">        
+        <div class="button-container verbena-section">
+          <div class="link-description">Houston's Favorite Coffee Shop:</div>
+          
+          <a href="https://verbenacoffee.com">
+            <img id="verbena-logo" src="verbena-logo.webp" alt="" />
+          </a>
+          
+          <a class="verbena-button" href="https://verbenacoffee.com">
+            <div>Website</div>
+          </a>
+          <a class="verbena-button" href="https://www.instagram.com/verbenacoffee_htx/">
+            <div>Instagram</div>
+          </a>
+        </div>
+      </div>      
+    </div>
+  </div>
 </body>
 </html>
