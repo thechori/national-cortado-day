@@ -18,7 +18,7 @@
 
   <style>    
     body {
-      /* variables */
+      /* colors */
       --primary-light: #d1f7ec;
       --primary: #679487;
       --primary-dark: #3f625a;
@@ -27,11 +27,11 @@
       --background-dark: #9da190;
       --background-light: #ebebeb;
 
+      /* general styling */
       flex: 1;
       display: flex;
       align-items: center;
       justify-content: center;
-
       background-color: var(--background-dark);
       color: #2e271f;
       font-family: Montserrat, Arial, sans-serif;
@@ -40,15 +40,15 @@
     #container {
       display: flex;
       align-items: center;
-      flex-direction: column;
       justify-content: center;
+      flex-direction: column;
       background-color: var(--background-dark);
       padding: 32px;
       border-radius: 30px;
     }
 
     #title {
-      font-size: 50px;
+      font-size: 36px;
       font-weight: 700;
     }
 
@@ -61,6 +61,7 @@
       justify-content: space-around;
       width: 100%;
       margin-bottom: 48px;
+      flex-direction: column;
     }
 
     #month {
@@ -70,7 +71,9 @@
     }
 
     #date {
-      font-size: 100px;
+      font-size: 60px;
+      text-align: center;
+      margin-bottom: 16px;
     }
 
     #footer {
@@ -136,6 +139,27 @@
 
     .link-description {
       margin-bottom: 4px;
+    }
+
+    @media screen and (min-width: 768px) {
+      #content {
+        flex-direction: row;
+      }
+
+      #title {
+        font-size: 50px;
+      }
+
+      #date {
+        font-size: 100px;
+        margin: 0;
+      }
+    }
+
+    @media screen and (min-width: 1024px) {
+      #content {
+        color: pink;
+      }
     }
 
   </style>
