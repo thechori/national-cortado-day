@@ -1,11 +1,36 @@
 {
   "name": "national-cortado-day",
-  "version": "1.0.0",
-  "description": "Static website for National Cortado Day",
+  "version": "2.0.0",
+  "description": "Website for National Cortado Day built using Next.js",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
-  "author": "Teodoro Systems",
-  "license": "ISC"
+  "author": "Ryan Teodoro",
+  "license": "ISC",
+  "dependencies": {
+    "@next/third-parties": "^15.3.0",
+    "@radix-ui/react-slot": "^1.2.0",
+    "@tailwindcss/postcss": "^4.1.4",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.488.0",
+    "next": "^15.3.0",
+    "postcss": "^8.5.3",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "tailwind-merge": "^3.2.0",
+    "tailwindcss": "^4.1.4",
+    "tw-animate-css": "^1.2.5"
+  },
+  "devDependencies": {
+    "@types/node": "22.14.1",
+    "@types/react": "19.1.2",
+    "eslint": "^9",
+    "eslint-config-next": "15.3.0",
+    "typescript": "5.8.3"
+  }
 }
