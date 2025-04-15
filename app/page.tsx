@@ -1,7 +1,72 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { Metadata } from "next";
 import { Coffee, Calendar, MapPin, ArrowRight } from "lucide-react";
 import { Button } from "./components/ui/button";
+
+export const metadata: Metadata = {
+  title:
+    "National Cortado Day - December 20th | Celebrate the Perfect Coffee Balance",
+  description:
+    "Celebrate National Cortado Day on December 20th! Learn about this perfect balance of espresso and steamed milk, find cortados near you, and join coffee lovers worldwide.",
+  keywords: [
+    "National Cortado Day",
+    "cortado coffee",
+    "espresso",
+    "coffee holiday",
+    "December 20th",
+    "coffee celebration",
+    "Spanish coffee"
+  ],
+  authors: [{ name: "Coffee Enthusiast" }],
+  creator: "Coffee Enthusiast",
+  publisher: "National Cortado Day",
+  formatDetection: {
+    telephone: false
+  },
+  metadataBase: new URL("https://nationalcortadoday.com"),
+  alternates: {
+    canonical: "/"
+  },
+  openGraph: {
+    title:
+      "National Cortado Day - December 20th | Celebrate the Perfect Coffee Balance",
+    description:
+      "Celebrate National Cortado Day on December 20th! Learn about this perfect balance of espresso and steamed milk, find cortados near you, and join coffee lovers worldwide.",
+    url: "https://nationalcortadoday.com",
+    siteName: "National Cortado Day",
+    images: [
+      {
+        url: "https://nationalcortadoday.com/cortado.jpg",
+        width: 1200,
+        height: 630,
+        alt: "National Cortado Day - December 20th"
+      }
+    ],
+    locale: "en_US",
+    type: "website"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title:
+      "National Cortado Day - December 20th | Celebrate the Perfect Coffee Balance",
+    description:
+      "Celebrate National Cortado Day on December 20th! Learn about this perfect balance of espresso and steamed milk, find cortados near you.",
+    images: ["https://nationalcortadoday.com/cortado.jpg"]
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1
+    }
+  },
+  category: "Food & Drink"
+};
 
 export default function CortadoDay() {
   return (
