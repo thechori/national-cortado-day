@@ -30,7 +30,7 @@ But what day to choose? My birthday of course, December 20th.
 
 For this to really work, I told myself that I had to get onto Wikipedia. So I found [the article for the different national food holidays](https://en.wikipedia.org/wiki/List_of_food_days), updated it with my new holiday, and cited the website I spun up as proof to support the edit.
 
-It worked. Now, people all around the world celebrate this holdiay on my December 20th. There are posts on Instagram, Tiktok, website articles, you name it.
+It worked. Now, people all around the world celebrate this holiday on my December 20th. You'll find people posting on [Instagram](https://www.instagram.com/sixtwelve612/p/CmZlU0DpPfP/), [TikTok](https://www.tiktok.com/@neighbourhoodcoffee/video/7314594123548298528), and even [website articles](https://anydayguide.com/calendar/5697).
 
 And that my friends, is the story of how I created my very own national food holiday.
 
