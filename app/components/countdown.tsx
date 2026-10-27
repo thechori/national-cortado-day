@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 
 function daysUntilCortadoDay(now: Date) {
   const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
@@ -9,12 +9,15 @@ function daysUntilCortadoDay(now: Date) {
   return Math.round((target.getTime() - today.getTime()) / 86_400_000);
 }
 
-export function Countdown() {
-  const [days, setDays] = useState<number | null>(null);
+const subscribe = () => () => {};
 
-  useEffect(() => {
-    setDays(daysUntilCortadoDay(new Date()));
-  }, []);
+export function Countdown() {
+  // Server render has no "today", so it shows the generic date line
+  const days = useSyncExternalStore(
+    subscribe,
+    () => daysUntilCortadoDay(new Date()),
+    () => null
+  );
 
   if (days === null) {
     return <p className="countdown-text">Every December 20th</p>;
