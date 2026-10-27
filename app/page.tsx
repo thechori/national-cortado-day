@@ -69,13 +69,6 @@ export const metadata: Metadata = {
   category: "Food & Drink"
 };
 
-const DOMAINS = [
-  { name: "nationalcoffeeday.com", verdict: "taken, of course" },
-  { name: "nationallatteday.com", verdict: "taken, not surprising" },
-  { name: "nationalmochaday.com", verdict: "taken, makes sense" },
-  { name: "nationalflatwhiteday.com", verdict: "taken, darn" }
-];
-
 const WAYS_TO_CELEBRATE = [
   {
     icon: Coffee,
@@ -212,54 +205,6 @@ export default function CortadoDay() {
               </li>
             ))}
           </ul>
-        </section>
-
-        <section className="tiles text-milk">
-          <div className="mx-auto grid max-w-6xl gap-12 px-4 py-20 md:grid-cols-2 md:px-8 md:py-28">
-            <div>
-              <h2 className="headline text-6xl md:text-8xl">
-                How a $12.99 domain became a holiday
-              </h2>
-              <p className="mt-8 max-w-md text-lg leading-relaxed text-milk/85">
-                There seemed to be a food holiday for everything, so I went
-                looking for one of my own. As a former barista, it had to have
-                espresso in it.
-              </p>
-            </div>
-
-            <div>
-              <ul className="space-y-3 text-lg md:text-xl">
-                {DOMAINS.map((d) => (
-                  <li
-                    key={d.name}
-                    className="flex flex-wrap items-baseline justify-between gap-x-4 border-b border-milk/20 pb-3"
-                  >
-                    <span className="taken font-semibold text-milk/60">
-                      {d.name}
-                    </span>
-                    <span className="text-base text-milk/60">{d.verdict}</span>
-                  </li>
-                ))}
-                <li className="flex rotate-1 flex-wrap items-baseline justify-between gap-x-4 rounded-2xl bg-crema px-5 py-4 text-espresso">
-                  <span className="font-bold">nationalcortadoday.com</span>
-                  <span className="font-semibold">available!</span>
-                </li>
-              </ul>
-              <p className="mt-10 text-lg leading-relaxed text-milk/85">
-                I bought it on the spot and picked my birthday, December 20th,
-                as the date. Then I added it to{" "}
-                <Link
-                  href="https://en.wikipedia.org/wiki/List_of_food_days"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-semibold text-milk underline decoration-crema decoration-2 underline-offset-4"
-                >
-                  Wikipedia&apos;s list of food days
-                </Link>
-                . Now cafés around the world celebrate it every year.
-              </p>
-            </div>
-          </div>
         </section>
       </main>
 

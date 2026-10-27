@@ -129,13 +129,6 @@
   box-shadow: 0 0 0 2px var(--color-espresso);
 }
 
-/* Origin story: domains that were already taken */
-.taken {
-  text-decoration: line-through;
-  text-decoration-thickness: 3px;
-  text-decoration-color: var(--color-crema);
-}
-
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
