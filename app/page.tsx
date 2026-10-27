@@ -1,8 +1,9 @@
-import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { Coffee, Calendar, MapPin, ArrowRight } from "lucide-react";
-import { Button } from "./components/ui/button";
+import { Coffee, MapPin, Camera, Home } from "lucide-react";
+import { Glass } from "./components/glass";
+import { Countdown } from "./components/countdown";
+import { RatioLab } from "./components/ratio-lab";
 
 export const metadata: Metadata = {
   title:
@@ -68,149 +69,208 @@ export const metadata: Metadata = {
   category: "Food & Drink"
 };
 
+const DOMAINS = [
+  { name: "nationalcoffeeday.com", verdict: "taken, of course" },
+  { name: "nationallatteday.com", verdict: "taken, not surprising" },
+  { name: "nationalmochaday.com", verdict: "taken, makes sense" },
+  { name: "nationalflatwhiteday.com", verdict: "taken, darn" }
+];
+
+const WAYS_TO_CELEBRATE = [
+  {
+    icon: Coffee,
+    title: "Order one at your local café",
+    text: "Ask for a cortado. Sip it slowly, it's only four ounces."
+  },
+  {
+    icon: Camera,
+    title: "Post it",
+    text: "Share your glass with #NationalCortadoDay so the rest of us can be jealous."
+  },
+  {
+    icon: Home,
+    title: "Pull one at home",
+    text: "A double shot of espresso, an equal pour of steamed milk, very little foam. That's it."
+  }
+];
+
 export default function CortadoDay() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-amber-50 to-orange-50">
-      <header className="container mx-auto py-6 px-4">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Coffee className="h-6 w-6 text-amber-800" />
-            <span className="font-bold text-amber-800">
+    <div className="overflow-x-clip">
+      <header className="tiles text-milk">
+        <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-5 md:px-8">
+          <span className="flex items-center gap-2 text-sm font-bold sm:text-base">
+            <Coffee className="h-5 w-5 text-crema" aria-hidden />
+            nationalcortadoday.com
+          </span>
+          <a
+            href="#ratio"
+            className="text-sm font-semibold whitespace-nowrap underline-offset-4 hover:underline sm:text-base"
+          >
+            What&apos;s a cortado?
+          </a>
+        </nav>
+
+        <section className="mx-auto grid max-w-6xl items-center gap-8 px-4 pt-8 pb-20 md:grid-cols-[minmax(0,7fr)_minmax(0,4fr)] md:px-8 md:pt-12 md:pb-28">
+          <div>
+            <p className="mb-6 inline-block -rotate-2 rounded-full bg-crema px-4 py-1.5 text-lg font-bold text-espresso">
+              December 20th
+            </p>
+            <h1 className="headline text-[clamp(4.5rem,15vw,11rem)]">
               National Cortado Day
-            </span>
+            </h1>
+            <p className="mt-8 max-w-lg text-xl leading-relaxed text-milk/90 md:text-2xl">
+              One day a year for the little glass of espresso cut with an
+              equal pour of warm milk.
+            </p>
+            <div className="mt-10 flex flex-wrap items-center gap-x-10 gap-y-6">
+              <Countdown />
+              <Link
+                href="https://www.google.com/maps/search/cortado+near+me"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full bg-milk px-6 py-3.5 text-lg font-bold text-cobalt transition-transform hover:-translate-y-0.5 hover:bg-foam"
+              >
+                <MapPin className="h-5 w-5" aria-hidden />
+                Find a cortado near me
+              </Link>
+            </div>
           </div>
-          <div className="flex items-center gap-2 text-amber-800">
-            <Calendar className="h-5 w-5" />
-            <span>December 20th</span>
+
+          <div className="mx-auto w-52 text-milk sm:w-64 md:w-full md:max-w-xs">
+            <Glass milk={0.5} pour className="w-full overflow-visible drop-shadow-[0_24px_30px_rgba(10,20,70,0.45)]" />
           </div>
-        </div>
+        </section>
       </header>
 
-      <main className="container mx-auto px-4 py-12">
-        <section className="flex flex-col items-center text-center mb-16">
-          <h1 className="text-4xl md:text-6xl font-bold text-amber-900 mb-6">
-            National Cortado Day
-          </h1>
-          <p className="text-xl md:text-2xl text-amber-800 mb-4">
-            Celebrating the perfect balance of espresso and steamed milk
-          </p>
-          <p className="text-lg text-amber-700 mb-8">December 20th</p>
-          <div className="relative w-full max-w-2xl h-64 md:h-96 rounded-2xl overflow-hidden mb-8">
-            <Image
-              src="/cortado.jpg?height=600&width=800"
-              alt="A perfectly crafted cortado"
-              fill
-              className="object-cover"
-              priority
-            />
+      <main>
+        <section
+          id="ratio"
+          className="mx-auto max-w-6xl scroll-mt-6 px-4 py-20 md:px-8 md:py-28"
+        >
+          <div className="mb-14 max-w-2xl">
+            <h2 className="headline text-6xl md:text-8xl">Cut, not frothed.</h2>
+            <p className="mt-6 text-lg leading-relaxed text-espresso/80 md:text-xl">
+              <em>Cortar</em> is Spanish for &ldquo;to cut.&rdquo; A cortado
+              cuts espresso with just enough steamed milk to soften its edge,
+              without the foam of a cappuccino. Drag the slider to see where it
+              sits among its relatives.
+            </p>
+          </div>
+          <RatioLab />
+        </section>
+
+        <section className="bg-espresso text-milk">
+          <div className="mx-auto max-w-6xl px-4 py-20 md:px-8 md:py-28">
+            <dl className="max-w-3xl">
+              <dt className="flex flex-wrap items-baseline gap-x-5 gap-y-1">
+                <span className="headline text-7xl md:text-9xl">cortado</span>
+                <span className="text-xl text-milk/70 md:text-2xl">
+                  /kor-TAH-doh/ <em>noun</em>
+                </span>
+              </dt>
+              <dd className="mt-10">
+                <ol className="space-y-6 text-lg leading-relaxed md:text-xl">
+                  <li className="grid grid-cols-[2rem_1fr]">
+                    <span className="font-bold text-crema">1.</span>
+                    <span>
+                      Espresso with a roughly equal amount of warm, steamed
+                      milk, served with little or no foam.
+                    </span>
+                  </li>
+                  <li className="grid grid-cols-[2rem_1fr]">
+                    <span className="font-bold text-crema">2.</span>
+                    <span>
+                      Traditionally poured into a small 4.5&nbsp;oz glass,
+                      which is why some cafés call it a Gibraltar.
+                    </span>
+                  </li>
+                </ol>
+                <p className="mt-10 border-t border-milk/20 pt-6 text-milk/70">
+                  Origin: Spain, by most accounts the Basque Country. From{" "}
+                  <em>cortar</em>, to cut.
+                </p>
+              </dd>
+            </dl>
           </div>
         </section>
 
-        <section className="max-w-3xl mx-auto bg-white rounded-2xl p-8 shadow-md mb-16">
-          <h2 className="text-2xl md:text-3xl font-bold text-amber-900 mb-4">
-            What is a Cortado?
+        <section className="mx-auto max-w-6xl px-4 py-20 md:px-8 md:py-28">
+          <h2 className="headline mb-14 text-6xl md:text-8xl">
+            How to celebrate
           </h2>
-          <p className="text-amber-800 mb-6">
-            A cortado is an espresso cut with a small amount of warm milk to
-            reduce the acidity. The milk in a cortado is steamed, but not frothy
-            and "texturized" as in many Italian coffee drinks.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-            <div className="bg-amber-100 p-4 rounded-xl">
-              <h3 className="font-bold text-amber-900 mb-2">Origin</h3>
-              <p className="text-sm text-amber-800">
-                The cortado originated in Spain's Basque country and the name
-                comes from the Spanish word "cortar" (to cut).
-              </p>
-            </div>
-            <div className="bg-amber-100 p-4 rounded-xl">
-              <h3 className="font-bold text-amber-900 mb-2">Ratio</h3>
-              <p className="text-sm text-amber-800">
-                The perfect cortado has a 1:1 or 1:2 ratio of espresso to
-                steamed milk.
-              </p>
-            </div>
-            <div className="bg-amber-100 p-4 rounded-xl">
-              <h3 className="font-bold text-amber-900 mb-2">Serving</h3>
-              <p className="text-sm text-amber-800">
-                Traditionally served in a small glass, about 4-5 ounces in size.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-2xl md:text-3xl font-bold text-amber-900 mb-4">
-            Ready to celebrate?
-          </h2>
-          <p className="text-amber-800 mb-8">
-            Find a café serving cortados near you and join the celebration!
-          </p>
-          <Link
-            href="https://www.google.com/search?q=cortado+near+me"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Button className="bg-amber-800 hover:bg-amber-900 text-white px-6 py-6 rounded-xl flex items-center gap-2 text-lg mx-auto">
-              <MapPin className="h-5 w-5" />
-              Find a Cortado Near Me
-              <ArrowRight className="h-5 w-5 ml-2" />
-            </Button>
-          </Link>
-        </section>
-
-        <section className="max-w-3xl mx-auto bg-amber-100 rounded-2xl p-8 mb-16">
-          <h2 className="text-2xl font-bold text-amber-900 mb-4 text-center">
-            How to Celebrate
-          </h2>
-          <ul className="space-y-4">
-            <li className="flex items-start gap-3">
-              <div className="bg-amber-800 text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mt-1">
-                1
-              </div>
-              <div>
-                <h3 className="font-bold text-amber-900">
-                  Visit your local café
-                </h3>
-                <p className="text-amber-800">
-                  Order a cortado and appreciate the craftsmanship.
+          <ul className="grid gap-10 md:grid-cols-3">
+            {WAYS_TO_CELEBRATE.map(({ icon: Icon, title, text }) => (
+              <li key={title}>
+                <span className="mb-5 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-cobalt text-milk">
+                  <Icon className="h-7 w-7" aria-hidden />
+                </span>
+                <h3 className="text-2xl font-bold">{title}</h3>
+                <p className="mt-2 text-lg leading-relaxed text-espresso/80">
+                  {text}
                 </p>
-              </div>
-            </li>
-            <li className="flex items-start gap-3">
-              <div className="bg-amber-800 text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mt-1">
-                2
-              </div>
-              <div>
-                <h3 className="font-bold text-amber-900">
-                  Share on social media
-                </h3>
-                <p className="text-amber-800">
-                  Post your cortado with #NationalCortadoDay.
-                </p>
-              </div>
-            </li>
-            <li className="flex items-start gap-3">
-              <div className="bg-amber-800 text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mt-1">
-                3
-              </div>
-              <div>
-                <h3 className="font-bold text-amber-900">Learn to make one</h3>
-                <p className="text-amber-800">
-                  Try making a cortado at home with your espresso machine.
-                </p>
-              </div>
-            </li>
+              </li>
+            ))}
           </ul>
+        </section>
+
+        <section className="tiles text-milk">
+          <div className="mx-auto grid max-w-6xl gap-12 px-4 py-20 md:grid-cols-2 md:px-8 md:py-28">
+            <div>
+              <h2 className="headline text-6xl md:text-8xl">
+                How a $12.99 domain became a holiday
+              </h2>
+              <p className="mt-8 max-w-md text-lg leading-relaxed text-milk/85">
+                There seemed to be a food holiday for everything, so I went
+                looking for one of my own. As a former barista, it had to have
+                espresso in it.
+              </p>
+            </div>
+
+            <div>
+              <ul className="space-y-3 text-lg md:text-xl">
+                {DOMAINS.map((d) => (
+                  <li
+                    key={d.name}
+                    className="flex flex-wrap items-baseline justify-between gap-x-4 border-b border-milk/20 pb-3"
+                  >
+                    <span className="taken font-semibold text-milk/60">
+                      {d.name}
+                    </span>
+                    <span className="text-base text-milk/60">{d.verdict}</span>
+                  </li>
+                ))}
+                <li className="flex rotate-1 flex-wrap items-baseline justify-between gap-x-4 rounded-2xl bg-crema px-5 py-4 text-espresso">
+                  <span className="font-bold">nationalcortadoday.com</span>
+                  <span className="font-semibold">available!</span>
+                </li>
+              </ul>
+              <p className="mt-10 text-lg leading-relaxed text-milk/85">
+                I bought it on the spot and picked my birthday, December 20th,
+                as the date. Then I added it to{" "}
+                <Link
+                  href="https://en.wikipedia.org/wiki/List_of_food_days"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-milk underline decoration-crema decoration-2 underline-offset-4"
+                >
+                  Wikipedia&apos;s list of food days
+                </Link>
+                . Now cafés around the world celebrate it every year.
+              </p>
+            </div>
+          </div>
         </section>
       </main>
 
-      <footer className="bg-amber-900 text-amber-100 py-8">
-        <div className="container mx-auto px-4 text-center">
-          <p className="mb-4">Happy National Cortado Day! December 20th</p>
-          <p className="text-sm opacity-75">
-            This site celebrates the wonderful cortado coffee. Not affiliated
-            with any official organization.
+      <footer className="bg-espresso text-milk">
+        <div className="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-14 md:flex-row md:items-end md:justify-between md:px-8">
+          <p className="headline text-5xl md:text-6xl">
+            See you December 20th.
+          </p>
+          <p className="max-w-sm text-sm text-milk/60">
+            A celebration of the humble cortado. Not affiliated with any
+            official organization.
           </p>
         </div>
       </footer>
